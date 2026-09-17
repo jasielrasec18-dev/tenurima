@@ -1,0 +1,89 @@
+html {
+  font-size: 16px;
+  scroll-padding-top: 80px;
+}
+
+body {
+  overflow-x: hidden;
+
+  background-color: var(--color-background);
+  color: var(--color-text);
+
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--color-text);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-heading);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, var(--font-size-5xl));
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, var(--font-size-4xl));
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, var(--font-size-xl));
+}
+
+p {
+  line-height: var(--line-height-relaxed);
+}
+
+strong {
+  font-weight: var(--font-weight-bold);
+}
+
+small {
+  font-size: var(--font-size-sm);
+}
+
+a {
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    opacity var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-secondary);
+  outline-offset: 4px;
+}
+
+
+img {
+  object-fit: contain;
+}
+
+.container {
+  width: min(
+    calc(100% - (var(--container-padding) * 2)),
+    var(--container-width)
+  );
+
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-20);
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
