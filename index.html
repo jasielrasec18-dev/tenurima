@@ -25,8 +25,8 @@
     <header class="header" id="header">
       <div class="container header-container">
         <a href="#home" class="logo" aria-label="Tenurima home">
-          <span class="logo-icon" aria-hidden="true">◉</span>
-          TENURIMA
+          <img src="./assets/img/favicon.png" alt="" class="logo__icon" aria-hidden="true" />
+          <span>TENURIMA</span>
         </a>
 
         <nav class="nav" aria-label="Main navigation">
@@ -47,10 +47,27 @@
 
     <main>
       <section class="hero" id="home">
+        <div class="hero-background" aria-hidden="true">
+          <img src="./assets/img/hero-dots.png" class="hero-background__dots" alt="" />
+
+          <img src="./assets/img/hero-glow.png" class="hero-background__glow" alt="" />
+
+          <img src="./assets/img/hero-heart.png" class="hero-background__heart" alt="" />
+
+          <img src="./assets/img/hero-veins.png" class="hero-background__veins" alt="" />
+        </div>
+
+        <div class="hero-background__blood-cells">
+          <img src="./assets/img/hero-blood-cells.png" alt="" />
+        </div>
+
         <div class="container hero-container">
           <div class="hero-content">
             <div class="rating">
-              <span class="rating-stars" aria-hidden="true">★★★★★</span>
+              <span class="rating-stars" aria-hidden="true">
+                ★★★★★
+              </span>
+
               <span>4.9/5 Customer Rating</span>
             </div>
 
@@ -61,8 +78,8 @@
 
             <p class="hero-description">
               Tenurima™ Blood Pressure Support was designed to help your body
-              maintain healthy blood pressure levels using a powerful blend of
-              vitamins and botanical ingredients.
+              maintain healthy blood pressure levels using a powerful blend
+              of vitamins and botanical ingredients.
             </p>
 
             <a href="#pricing" class="button button--primary">
@@ -76,13 +93,34 @@
           </div>
 
           <div class="hero-visual">
-            <img src="./assets/img/tenurima-bottle.png" alt="Tenurima Blood Pressure Support bottles" class="hero-product" />
+            <img src="./assets/img/tenurima-product-right.png" alt="" class="hero-product hero-product--back" aria-hidden="true" />
+
+            <img src="./assets/img/tenurima-bottle.png" alt="Tenurima Blood Pressure Support" class="hero-product hero-product--main" />
+
+            <img src="./assets/img/capsule-silver.png" alt="" class="hero-decoration hero-decoration--capsule-left" aria-hidden="true" />
+
+            <img src="./assets/img/capsule-white.png" alt="" class="hero-decoration hero-decoration--capsule-right" aria-hidden="true" />
 
             <div class="hero-benefits">
-              <p>✓ Supports healthy blood pressure</p>
-              <p>✓ Promotes healthy blood flow</p>
-              <p>✓ Helps maintain optimal oxygen levels</p>
-              <p>🇺🇸 Made in the USA</p>
+              <p>
+                <span class="check-icon" aria-hidden="true">✓</span>
+                Supports healthy blood pressure
+              </p>
+
+              <p>
+                <span class="check-icon" aria-hidden="true">✓</span>
+                Promotes healthy blood flow
+              </p>
+
+              <p>
+                <span class="check-icon" aria-hidden="true">✓</span>
+                Helps maintain optimal oxygen levels
+              </p>
+
+              <p>
+                <img src="./assets/img/usa.png" alt="" aria-hidden="true" />
+                Made in the USA
+              </p>
             </div>
           </div>
         </div>
