@@ -1521,3 +1521,130 @@
   max-width: 100%;
   margin-top: 24px;
 }
+
+/* =========================
+   FAQ
+========================= */
+
+.faq {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0;
+  background:
+    radial-gradient(
+      circle at 0% 15%,
+      rgba(201, 73, 74, 0.22) 0%,
+      rgba(68, 0, 12, 0) 38%
+    ),
+    linear-gradient(
+      115deg,
+      #44000c 0%,
+      #250006 45%,
+      #170003 100%
+    );
+}
+
+.faq__container {
+  width: 100%;
+  max-width: 1050px;
+  margin-inline: auto;
+}
+
+.faq__container > h2 {
+  margin: 0 0 48px;
+  color: #ffffff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* Accordion */
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.accordion__item {
+  overflow: hidden;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.accordion__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 72px;
+  padding: 20px 24px;
+
+  border: 0;
+  background: #ffffff;
+
+  color: #44000c;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.accordion__icon {
+  flex: 0 0 auto;
+  margin-left: 24px;
+
+  color: #c9494a;
+  font-size: 22px;
+  line-height: 1;
+
+  transition: transform 0.25s ease;
+}
+
+
+.accordion__content {
+  display: none;
+  align-items: center;
+  min-height: 82px;
+  padding: 16px 24px;
+  background: #f4f4f4;
+}
+
+.accordion__content p {
+  margin: 0;
+  color: #736467;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+
+.accordion__item.active .accordion__header {
+  background: #c9494a;
+  color: #ffffff;
+}
+
+.accordion__item.active .accordion__icon {
+  color: #ffffff;
+  transform: rotate(180deg);
+}
+
+.accordion__item.active .accordion__content {
+  display: flex;
+}
+
+
+.faq__label {
+  display: block;
+  width: 100%;
+  max-width: 1050px;
+  height: auto;
+  margin: 64px auto 0;
+  object-fit: contain;
+}
