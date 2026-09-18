@@ -500,8 +500,8 @@
 
           <div>
             <h2>
-              Every 6 Bottle Order Gets
-              <strong>FREE Shipping Too!</strong>
+              <span>Every</span> 6 Bottle <span>Order Gets</span> FREE
+              Shipping <span>Too!</span>
             </h2>
 
             <small>
@@ -515,142 +515,178 @@
       <div class="marquee" aria-hidden="true">
         <div class="marquee__content">
           60 DAY GUARANTEE • NATURAL FORMULA • GLUTEN-FREE • NON-GMO •
-          60 DAY GUARANTEE • NATURAL FORMULA • GLUTEN-FREE • NON-GMO •
+          60 DAY GUARANTEE • NATURAL FORMULA • GLUTEN-FREE • NON-GMO • 60 DAY GUARANTEE • NATURAL FORMULA • GLUTEN-FREE • NON-GMO •60 DAY GUARANTEE • NATURAL FORMULA • GLUTEN-FREE • NON-GMO •
         </div>
       </div>
 
-      <section class="pricing section" id="pricing">
-        <div class="container">
-          <header class="section-heading">
-            <h2>Order Your <span>Tenurima</span></h2>
+      <section class="pricing" id="pricing">
+        <div class="container pricing-container">
 
-            <p>
-              Select the package that fits your goals and save more:
-            </p>
+          <header class="pricing-heading">
+            <h2>Order Your <span>Tenurima</span></h2>
+            <p>Select the package that fits your goals and save more:</p>
           </header>
 
-          <div class="pricing__grid">
+          <div class="pricing-grid">
 
-            <article class="price-card">
-              <header class="price-card__header">
+            <!-- BASIC -->
+            <article class="pricing-card">
+              <header class="pricing-card__header">
                 BASIC
               </header>
 
-              <div class="price-card__body">
-                <h3>2 BOTTLES</h3>
-                <p>60 DAY SUPPLY</p>
+              <div class="pricing-card__body">
+                <div class="pricing-card__heading">
+                  <h3>2 BOTTLES</h3>
+                  <p>60 DAY SUPPLY</p>
+                </div>
 
-                <img src="./assets/img/package-2.png" alt="Two bottles of Tenurima" />
+                <div class="pricing-card__product">
+                  <img src="./assets/img/pricing-basic.png" alt="Two bottles of Tenurima" />
+                </div>
 
-                <div class="price">
-                  <strong>$79<sup>98</sup></strong>
+                <div class="pricing-card__price">
+                  <strong>$79<sup>.98</sup></strong>
                   <span>/Bottle</span>
                 </div>
 
-                <ul>
-                  <li>✕ FREE BONUS!</li>
-                  <li>✕ FAST SHIPPING</li>
-                  <li>✕ FREE SHIPPING</li>
+                <ul class="pricing-card__features pricing-card__features--basic">
+                  <li>FREE BONUS!</li>
+                  <li>FAST SHIPPING</li>
+                  <li>FREE SHIPPING</li>
                 </ul>
 
-                <a href="#" class="buy-button" data-package="basic" aria-label="Buy two bottles of Tenurima">
-                  BUY NOW 🛒
+                <a href="#" class="pricing-card__buy" aria-label="Buy two bottles of Tenurima">
+                  <img src="./assets/img/buy-now-button.png" alt="Buy now" />
                 </a>
 
-                <p class="price-card__total">
+                <img src="./assets/img/payment-methods.png" alt="Visa, Mastercard, American Express, Discover, Norton and McAfee Secure" class="pricing-card__payments" />
+
+                <p class="pricing-card__total">
                   TOTAL:
                   <s>$358</s>
-                  <strong>$159.96</strong>
+                  <strong>$159<sup>.96</sup></strong>
                 </p>
               </div>
             </article>
 
-            <article class="price-card price-card--popular">
-              <header class="price-card__header">
+
+            <!-- MOST POPULAR -->
+            <article class="pricing-card pricing-card--popular">
+              <header class="pricing-card__header">
                 MOST POPULAR
               </header>
 
-              <div class="price-card__body">
-                <h3>6 BOTTLES</h3>
-                <p>180 DAY SUPPLY</p>
+              <div class="pricing-card__body">
+                <div class="pricing-card__heading">
+                  <h3>6 BOTTLES</h3>
+                  <p>180 DAY SUPPLY</p>
+                </div>
 
-                <img src="./assets/img/package-6.png" alt="Six bottles of Tenurima" />
+                <div class="pricing-card__product">
+                  <img src="./assets/img/pricing-popular.png" alt="Six bottles of Tenurima with free shipping" />
+                </div>
 
-                <div class="price">
-                  <strong>$49<sup>98</sup></strong>
+                <div class="pricing-card__price">
+                  <strong>$49<sup>.98</sup></strong>
                   <span>/Bottle</span>
                 </div>
 
-                <ul>
-                  <li>✓ 2 FREE BONUSES!</li>
-                  <li>✓ FAST &amp; FREE SHIPPING</li>
-                  <li>✓ 60 DAYS GUARANTEE</li>
+                <ul class="pricing-card__features">
+                  <li>2 FREE BONUSES!</li>
+                  <li>FAST &amp; FREE SHIPPING</li>
+                  <li>60 DAYS GUARANTEE</li>
                 </ul>
 
-                <a href="#" class="buy-button" data-package="popular" aria-label="Buy six bottles of Tenurima">
-                  BUY NOW 🛒
+                <a href="#" class="pricing-card__buy" aria-label="Buy six bottles of Tenurima">
+                  <img src="./assets/img/buy-now-button.png" alt="Buy now" />
                 </a>
 
-                <p class="price-card__total">
+                <img src="./assets/img/payment-methods.png" alt="Visa, Mastercard, American Express, Discover, Norton and McAfee Secure" class="pricing-card__payments" />
+
+                <p class="pricing-card__total">
                   TOTAL:
                   <s>$1074</s>
-                  <strong>$299.88</strong>
+                  <strong>$299<sup>.88</sup></strong>
                 </p>
               </div>
             </article>
 
-            <article class="price-card">
-              <header class="price-card__header">
+
+            <!-- BUNDLE -->
+            <article class="pricing-card">
+              <header class="pricing-card__header">
                 BUNDLE
               </header>
 
-              <div class="price-card__body">
-                <h3>3 BOTTLES</h3>
-                <p>90 DAY SUPPLY</p>
+              <div class="pricing-card__body">
+                <div class="pricing-card__heading">
+                  <h3>3 BOTTLES</h3>
+                  <p class="pricing-card__supply--bundle">90 DAY SUPPLY</p>
+                </div>
 
-                <img src="./assets/img/package-3.png" alt="Three bottles of Tenurima" />
+                <div class="pricing-card__product">
+                  <img src="./assets/img/pricing-bundle.png" alt="Three bottles of Tenurima with free shipping" />
+                </div>
 
-                <div class="price">
-                  <strong>$69<sup>98</sup></strong>
+                <div class="pricing-card__price">
+                  <strong>$69<sup>.98</sup></strong>
                   <span>/Bottle</span>
                 </div>
 
-                <ul>
-                  <li>● 1 FREE BONUS!</li>
-                  <li>✓ FAST &amp; FREE SHIPPING</li>
-                  <li>✓ 60 DAYS GUARANTEE</li>
+                <ul class="pricing-card__features pricing-card__features--bundle">
+                  <li>1 FREE BONUS!</li>
+                  <li>FAST &amp; FREE SHIPPING</li>
+                  <li>60 DAYS GUARANTEE</li>
                 </ul>
 
-                <a href="#" class="buy-button" data-package="bundle" aria-label="Buy three bottles of Tenurima">
-                  BUY NOW 🛒
+                <a href="#" class="pricing-card__buy" aria-label="Buy three bottles of Tenurima">
+                  <img src="./assets/img/buy-now-button.png" alt="Buy now" />
                 </a>
 
-                <p class="price-card__total">
+                <img src="./assets/img/payment-methods.png" alt="Visa, Mastercard, American Express, Discover, Norton and McAfee Secure" class="pricing-card__payments" />
+
+                <p class="pricing-card__total">
                   TOTAL:
                   <s>$537</s>
-                  <strong>$209.94</strong>
+                  <strong>$209<sup>.94</sup></strong>
                 </p>
               </div>
             </article>
+
           </div>
 
-          <article class="guarantee">
-            <img src="./assets/icons/selo.svg" alt="60 day satisfaction guarantee" />
 
-            <div>
-              <h2>100% SATISFACTION GUARANTEED</h2>
+          <!-- GUARANTEE -->
+          <article class="pricing-guarantee">
+
+            <div class="pricing-guarantee__seal">
+              <img src="./assets/icons/selo.svg" alt="60 day satisfaction guarantee" />
+            </div>
+
+            <div class="pricing-guarantee__content">
+              <h2>
+                100% SATISFACTION
+                <br />
+                GUARANTEED
+              </h2>
 
               <p>
-                Your purchase is protected by our 60-Day Satisfaction Promise
-                from the original purchase date.
+                Your purchase is protected by our 60-Day Satisfaction
+                Promise from the original purchase date. If you're not
+                satisfied with your experience, simply contact us through
+                this link to our Contact Page, and our team will make it
+                right.
               </p>
 
-              <a href="#pricing" class="button button--primary">
+              <a href="#pricing" class="button button--primary pricing-guarantee__button">
                 <span aria-hidden="true">🛒</span>
                 ORDER NOW
               </a>
             </div>
+
           </article>
+
         </div>
       </section>
 
