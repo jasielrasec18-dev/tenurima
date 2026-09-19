@@ -212,3 +212,5 @@ deixar explícito — está anotado aqui como pendência.
    `backdrop-filter` e `mix-blend-mode` (ainda usados na caixa de
    benefícios da hero e na foto do "about") são justamente onde o Safari
    costuma divergir — e já deram problema no Chrome nesta página.
+
+   

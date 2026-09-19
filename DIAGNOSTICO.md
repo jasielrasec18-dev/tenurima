@@ -530,3 +530,4 @@ incluindo overflow horizontal e uma regressão abaixo do breakpoint de
 As correções propostas priorizam preservar o comportamento existente
 da página, corrigindo as causas identificadas sem alterar
 desnecessariamente sua estrutura visual.
+
