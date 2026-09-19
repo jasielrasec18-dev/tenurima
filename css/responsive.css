@@ -1,0 +1,630 @@
+/* ==================================================================== *
+ * Responsividade
+ *
+ * O layout base (sections.css) foi construído a partir das medidas do
+ * Figma desktop, que usa larguras fixas em px e vários elementos em
+ * position: absolute no hero e no "about". Esses valores só se sustentam
+ * acima de ~1024px. Deste arquivo para baixo, cada breakpoint vai
+ * soltando essas âncoras até o layout virar uma coluna só.
+ *
+ * Abordagem: mobile é tratado como um layout de fluxo normal, não como
+ * uma versão encolhida do desktop. Onde o desktop usa absolute, o mobile
+ * volta para static.
+ *
+ * Breakpoints (max-width, do maior para o menor, para a cascata trabalhar
+ * a favor):
+ *   1280px — folga lateral nas seções mais largas
+ *   1080px — 2 colunas de ingredientes, cards de preço fluidos
+ *    900px — hero, about e benefits empilham
+ *    768px — tablet/mobile: tudo em uma coluna
+ *    560px — 1 depoimento por vez, card de depoimento empilhado
+ *    380px — ajuste fino para 360px
+ * ==================================================================== */
+
+
+/* ==================================================================== *
+ * <= 1280px
+ * ==================================================================== */
+
+@media (max-width: 1280px) {
+  .pricing-guarantee {
+    width: 100%;
+    gap: 48px;
+    padding: 56px;
+  }
+
+  .testimonials-arrow--prev {
+    left: 8px;
+  }
+
+  .testimonials-arrow--next {
+    right: 8px;
+  }
+}
+
+
+/* ==================================================================== *
+ * <= 1080px
+ * ==================================================================== */
+
+@media (max-width: 1080px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .pricing-card,
+  .pricing-card--popular {
+    width: 100%;
+    height: auto;
+  }
+
+  .pricing-card__body {
+    padding-bottom: 28px;
+  }
+
+  .ingredients-grid {
+    grid-template-columns: repeat(2, minmax(0, 300px));
+    row-gap: 48px;
+  }
+
+  .ingredient-card {
+    max-width: none;
+  }
+
+  .benefits-content {
+    grid-template-columns: minmax(0, 1fr) 240px minmax(0, 1fr);
+    column-gap: 20px;
+  }
+
+  .benefits-product {
+    width: 240px;
+    height: 308px;
+  }
+
+  .benefits-product__bottle {
+    width: 300px;
+  }
+
+  .benefits-product__circles {
+    width: 310px;
+  }
+
+  .benefits-product__base {
+    width: 230px;
+    bottom: -38px;
+  }
+
+  .benefit-item p {
+    font-size: 13px;
+  }
+
+  .pricing-guarantee {
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 40px;
+    min-height: 0;
+    padding: 48px;
+  }
+
+  .pricing-guarantee__seal img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+
+@media (max-width: 900px) {
+  .nav {
+    display: none;
+  }
+
+  .header-container {
+    min-height: 64px;
+  }
+
+  .hero {
+    min-height: 0;
+    padding-top: 88px;
+    padding-bottom: 56px;
+    text-align: center;
+  }
+
+  .hero-container {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 32px;
+    max-width: 520px;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    transform: none;
+  }
+
+  .hero-title,
+  .hero-description {
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    min-height: 0;
+  }
+
+  .hero-product--main {
+    position: static;
+    width: min(320px, 82%);
+    transform: none;
+  }
+
+  .hero-product--back,
+  .hero-decoration {
+    display: none;
+  }
+
+  .hero-benefits {
+    position: static;
+    width: min(320px, 100%);
+    text-align: left;
+  }
+
+  .hero-benefits p {
+    font-size: 0.75rem;
+  }
+
+  .hero-background__heart,
+  .hero-background__veins,
+  .hero-background__blood-cells {
+    display: none;
+  }
+
+  .hero-background__glow {
+    top: -120px;
+    right: -220px;
+    width: 620px;
+  }
+
+  .hero-background__dots {
+    width: 260px;
+  }
+
+  .hero::after,
+  .benefits::before {
+    width: 280px;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+
+  .about {
+    height: auto;
+    min-height: 0;
+    padding-block: 56px;
+  }
+
+  .about-container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 40px;
+    max-width: 560px;
+    height: auto;
+  }
+
+  .about-content {
+    order: 1;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    transform: none;
+  }
+
+  .about-copy {
+    max-width: 100%;
+    font-size: 14px;
+  }
+
+  .about-title {
+    font-size: 1.75rem;
+  }
+
+  .about-button {
+    width: auto;
+    min-width: 245px;
+  }
+
+  .about-visual {
+    order: 2;
+    width: 100%;
+    max-width: 420px;
+    height: 300px;
+    margin-inline: auto;
+  }
+
+  .about-woman {
+    left: 50%;
+    width: 520px;
+    height: 300px;
+    transform: translateX(-50%);
+  }
+
+  .about-product {
+    top: 10px;
+    left: 4%;
+    width: 210px;
+  }
+
+  .about-circulatory {
+    top: 20px;
+    right: 6%;
+    left: auto;
+    width: 130px;
+  }
+
+  .about-blood-cells,
+  .about-blood-cells--two {
+    display: none;
+  }
+
+  .benefits {
+    min-height: 0;
+  }
+
+  .benefits-container {
+    padding-top: 48px;
+    padding-bottom: 40px;
+  }
+
+  .benefits-content {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    row-gap: 32px;
+    min-height: 0;
+  }
+
+  .benefits-list {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .benefits-list--left,
+  .benefits-list--right {
+    align-items: stretch;
+  }
+
+  .benefits-list--left {
+    order: 1;
+  }
+
+  .benefits-list--right {
+    order: 2;
+  }
+
+  .benefits-product {
+    order: 3;
+    align-self: center;
+    width: 100%;
+    max-width: 320px;
+    height: 287px;
+  }
+
+  .benefits-product__bottle {
+    width: 280px;
+  }
+
+  .benefits-product__circles {
+    width: 300px;
+  }
+
+  .benefits-product__base {
+    bottom: -37px;
+    width: 215px;
+  }
+
+  .benefits-background__couple,
+  .benefits-background__heart {
+    opacity: 0.12;
+  }
+
+  .testimonials-track {
+    --testimonials-per-view: 1;
+  }
+
+  .testimonials-slider {
+    padding-bottom: 64px;
+  }
+
+  .testimonials-arrow {
+    top: auto;
+    bottom: 0;
+    width: 44px;
+    height: 44px;
+    transform: none;
+  }
+
+  .testimonials-arrow--prev {
+    left: calc(50% - 52px);
+  }
+
+  .testimonials-arrow--next {
+    right: calc(50% - 52px);
+  }
+
+  .shipping__container {
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    padding-block: 40px;
+    text-align: center;
+  }
+
+  .shipping__container > div {
+    align-items: center;
+    width: 100%;
+  }
+
+  .shipping__container h2 {
+    font-size: 26px;
+  }
+
+  .pricing-guarantee {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 28px;
+    margin-top: 56px;
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .pricing-guarantee__seal {
+    width: 200px;
+  }
+
+  .pricing-guarantee__content {
+    align-items: center;
+  }
+}
+
+
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 16px;
+  }
+
+  html {
+    scroll-padding-top: 72px;
+  }
+
+
+  .ingredients {
+    padding: 48px 0 40px;
+  }
+
+  .ingredients-heading {
+    margin-bottom: 40px;
+  }
+
+  .ingredients-grid {
+    grid-template-columns: minmax(0, 340px);
+    row-gap: 56px;
+  }
+
+  .pricing {
+    padding: 56px 0 72px;
+  }
+
+  .pricing-grid {
+    grid-template-columns: minmax(0, 420px);
+    align-items: stretch;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .pricing-card {
+    order: 3;
+  }
+
+  .pricing-card--popular {
+    order: 1;
+  }
+
+  .pricing-card:last-child {
+    order: 2;
+  }
+
+  .faq__container > h2 {
+    margin-bottom: 32px;
+    font-size: 26px;
+  }
+
+  .accordion__header {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  .accordion__icon {
+    margin-left: 12px;
+  }
+
+  .accordion__content {
+    min-height: 0;
+    padding: 14px 16px;
+  }
+
+  .accordion__content p {
+    font-size: 14px;
+  }
+
+  .footer__nav {
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    padding-inline: 16px;
+  }
+
+  .footer__nav a {
+    font-size: 14px;
+  }
+
+  .footer__disclaimer {
+    font-size: 12px;
+  }
+
+  .testimonials-heading h2,
+  .benefits-heading h2,
+  .pricing-heading h2 {
+    font-size: 26px;
+  }
+
+  .testimonials {
+    padding: 48px 0;
+  }
+
+  .marquee__group {
+    font-size: 12px;
+  }
+}
+
+
+@media (max-width: 560px) {
+  .testimonial-card {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+  }
+
+  .testimonial-card__image {
+    height: 220px;
+  }
+
+  .testimonial-card__content {
+    padding: 20px 18px;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+  }
+
+  .about-title {
+    font-size: 1.5rem;
+  }
+
+  .shipping__container h2 {
+    font-size: 22px;
+  }
+
+  .pricing-guarantee__content h2 {
+    font-size: 22px;
+  }
+
+  .button--primary {
+    width: 100%;
+    min-width: 0;
+    max-width: 280px;
+  }
+}
+
+
+@media (max-width: 380px) {
+  :root {
+    --container-padding: 12px;
+  }
+
+  .header-contact {
+    padding: 7px 10px;
+    font-size: 0.62rem;
+  }
+
+  .logo {
+    font-size: 0.85rem;
+  }
+
+  .hero-title {
+    font-size: 1.55rem;
+  }
+
+  .hero-product--main {
+    width: 88%;
+  }
+
+  .hero-benefits p {
+    font-size: 0.7rem;
+  }
+
+  .benefit-item {
+    gap: 12px;
+    padding: 10px 16px 10px 10px;
+  }
+
+  .benefit-item p {
+    font-size: 12px;
+  }
+
+  .benefits-product {
+    height: 236px;
+  }
+
+  .benefits-product__bottle {
+    width: 230px;
+  }
+
+  .benefits-product__base {
+    bottom: -30px;
+    width: 180px;
+  }
+
+  .pricing-card__heading h3 {
+    font-size: 22px;
+  }
+
+  .pricing-card__price strong {
+    font-size: 38px;
+  }
+
+  .shipping__container h2 {
+    font-size: 20px;
+  }
+
+  .footer__nav {
+    gap: 10px 16px;
+  }
+}
+
+
+@media (min-width: 1600px) {
+  .hero {
+    min-height: 560px;
+  }
+
+  .hero-background__glow {
+    right: -60px;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
