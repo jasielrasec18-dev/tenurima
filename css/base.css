@@ -5,10 +5,8 @@ html {
 
 body {
   overflow-x: hidden;
-
   background-color: var(--color-background);
   color: var(--color-text);
-
   font-family: var(--font-primary);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
@@ -75,7 +73,6 @@ img {
     calc(100% - (var(--container-padding) * 2)),
     var(--container-width)
   );
-
   margin-inline: auto;
 }
 

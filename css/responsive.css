@@ -127,20 +127,22 @@
     min-height: 0;
     padding-top: 88px;
     padding-bottom: 56px;
-    text-align: center;
+    text-align: left;
   }
 
   .hero-container {
     grid-template-columns: minmax(0, 1fr);
-    justify-items: center;
+    justify-items: stretch;
     gap: 32px;
     max-width: 520px;
   }
 
+  /* O Figma mobile mantem titulo, descricao e botao alinhados a
+     esquerda — so a imagem do produto (.hero-visual) e centralizada. */
   .hero-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     max-width: 100%;
     transform: none;
   }
@@ -228,9 +230,9 @@
 
   .about-content {
     order: 1;
-    align-items: center;
+    align-items: flex-start;
     width: 100%;
-    text-align: center;
+    text-align: left;
     transform: none;
   }
 
@@ -244,16 +246,22 @@
   }
 
   .about-button {
+    align-self: flex-start;
     width: auto;
     min-width: 245px;
   }
 
+  /* No Figma essa imagem toca as duas bordas da tela (0 de margem),
+     diferente do texto ao lado, que respeita o padding do container.
+     width:100% aqui so preencheria a coluna com padding — o calc()
+     "estica" a imagem para fora do padding ate a borda real da
+     viewport, dos dois lados. */
   .about-visual {
     order: 2;
-    width: 100%;
-    max-width: 420px;
+    width: calc(100% + (var(--container-padding) * 2));
+    max-width: none;
     height: 300px;
-    margin-inline: auto;
+    margin-inline: calc(var(--container-padding) * -1);
   }
 
   .about-woman {
@@ -341,28 +349,12 @@
     opacity: 0.12;
   }
 
+  /* No Figma o card nao ocupa 100% da viewport: a proxima foto
+     "espia" na borda, e as setas ficam na lateral do card (nao embaixo
+     dele, que era o que eu tinha antes). */
   .testimonials-track {
     --testimonials-per-view: 1;
-  }
-
-  .testimonials-slider {
-    padding-bottom: 64px;
-  }
-
-  .testimonials-arrow {
-    top: auto;
-    bottom: 0;
-    width: 44px;
-    height: 44px;
-    transform: none;
-  }
-
-  .testimonials-arrow--prev {
-    left: calc(50% - 52px);
-  }
-
-  .testimonials-arrow--next {
-    right: calc(50% - 52px);
+    grid-auto-columns: 84%;
   }
 
   .shipping__container {
@@ -488,6 +480,18 @@
   .benefits-heading h2,
   .pricing-heading h2 {
     font-size: 26px;
+  }
+
+  /* No Figma mobile a estrela+nota e o titulo ficam alinhados a
+     esquerda (mesma margem do resto do texto) — so no desktop e
+     centralizado. */
+  .testimonials-heading,
+  .testimonials-heading h2 {
+    text-align: left;
+  }
+
+  .testimonials-rating {
+    justify-content: flex-start;
   }
 
   .testimonials {
