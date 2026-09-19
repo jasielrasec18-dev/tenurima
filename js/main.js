@@ -138,5 +138,6 @@ function initTestimonialsSlider() {
 }
 
 
+
 initAccordion();
 initTestimonialsSlider();
