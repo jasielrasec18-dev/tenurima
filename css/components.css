@@ -146,6 +146,7 @@
   to   { transform: translateX(-50%); }
 }
 
+
 /* Respeita quem pediu menos movimento no sistema operacional. */
 @media (prefers-reduced-motion: reduce) {
   .marquee__track {
