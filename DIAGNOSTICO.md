@@ -1,5 +1,10 @@
 # Relatório de Diagnóstico — Alpha Rock
 
+Página auditada: <https://biogutex.com/> (a marca exibida na página é
+Alpha Rock; o domínio é biogutex.com).
+
+Larguras testadas: 360px, 393px, 400px, 414px, 768px, 1024px, 1440px.
+
 ## Objetivo
 
 Este documento apresenta os problemas identificados durante a análise
@@ -404,18 +409,109 @@ main .container .area-img .main_product {
   position: relative;
   z-index: 5;
 }
+```
+
+### Por que acontece
+
+Abaixo de 420px a imagem deixa de ocupar altura própria no fluxo do
+documento. Como ela está em `position: relative` com `z-index: 5`, ela
+continua sendo pintada por cima, mas o espaço que deveria reservar no
+layout some — então a seção seguinte sobe e ocupa essa área.
+
+O gatilho mais provável é uma regra em media query abaixo desse
+breakpoint que troca o posicionamento da imagem (para `absolute`) ou
+zera a altura do contêiner `.area-img`. Não consegui isolar com certeza
+qual das duas é, porque o CSS da página é minificado e há várias regras
+concorrentes para esse seletor em breakpoints próximos.
+
+O que consegui confirmar: o problema é de reserva de espaço no fluxo, e
+não de `z-index` — subir o `z-index` da seção seguinte não corrige, só
+inverte qual elemento fica por cima.
+
+### Como eu corrigiria
+
+Primeiro confirmaria, no DevTools, qual regra está ativa em 393px
+inspecionando o painel "Computed" da imagem e do contêiner `.area-img`.
+
+A correção depende do que for encontrado:
+
+- se a imagem virou `absolute` no breakpoint, eu a devolveria para
+  `position: relative` (ou `static`) no mobile, deixando que ela ocupe
+  altura normalmente;
+- se o contêiner perdeu altura, definiria `min-height` no `.area-img`
+  ou deixaria a imagem como `display: block; width: 100%; height: auto`
+  dentro de um contêiner sem altura fixa.
+
+Em qualquer um dos casos eu evitaria altura fixa em px nessa área e
+deixaria o conteúdo definir a altura, que é o que torna o layout
+previsível em larguras arbitrárias.
+
+### Gravidade
+
+**Médio.**
+
+A sobreposição acontece na primeira dobra, logo abaixo do produto, e
+prejudica a apresentação em uma faixa de telas real (iPhone SE, Galaxy
+S8 e aparelhos de 360–414px). Por outro lado, não bloqueia navegação
+nem impede a compra — por isso não classifiquei como crítico.
 
 ## Resumo dos resultados
 
-| # | Problema | Categoria | Severidade |
+| # | Problema | Categoria | Gravidade |
 |---|---|---|---|
-| 1 | Overflow horizontal em telas mobile | Responsividade | Média |
-| 2 | TypeError ao processar links da compra | JavaScript | Alta |
-| 3 | Texto com contraste insuficiente | UI/Acessibilidade | Média |
-| 4 | FAQ não responde aos cliques | Funcionalidade | Média |
-| 5 | BUY NOW do MOST POPULAR não funciona | Conversão | Alta |
-| 6 | Links de compra retornam 404 | Conversão | Alta |
-| 7 | Imagem principal sobreposta em ≤420px | Responsividade | Média |
+| 1 | Overflow horizontal em telas mobile | Responsividade | Crítico |
+| 2 | TypeError ao processar links da compra | JavaScript | Crítico |
+| 3 | Texto com contraste insuficiente | UI / Acessibilidade | Médio |
+| 4 | FAQ não responde aos cliques | Funcionalidade | Médio |
+| 5 | BUY NOW do MOST POPULAR não funciona | Conversão | Crítico |
+| 6 | Links de compra retornam 404 | Conversão | Crítico |
+| 7 | Imagem principal sobreposta em ≤420px | Responsividade | Médio |
+
+## Bônus — outros problemas encontrados
+
+Estes não entram na contagem dos 7 principais, mas apareceram durante a
+auditoria.
+
+### B1 — `<title>` da página é de outro produto
+
+A aba do navegador mostra **SteelPower**, e não Alpha Rock. As metatags
+sociais apontam para domínios de terceiros
+(`og:image` para `steelpower.shop`, `og:url` para `alpharock.store`).
+
+**Causa provável:** a página foi derivada de um template de outro funil e
+o `<head>` não foi atualizado.
+
+**Gravidade: Médio.** Não quebra nada, mas prejudica reconhecimento de
+marca na aba, nos favoritos e em qualquer compartilhamento em rede
+social — que é tráfego pago chegando com o nome errado.
+
+### B2 — Link da página de contato com erro de digitação
+
+Na seção de garantia, o link "contact page" aponta para
+`/contact.hmtl` (com as letras trocadas), enquanto o rodapé aponta
+corretamente para `/contact.html`.
+
+**Causa:** erro de digitação no `href`, não replicado no rodapé.
+
+**Gravidade: Médio.** O link aparece exatamente no parágrafo que promete
+a garantia de 60 dias. O usuário que clica ali está com dúvida antes de
+comprar e cai em um 404.
+
+### B3 — Valores dos pacotes não fecham entre si
+
+No card "MOST POPULAR", o preço por unidade é **$49/bottle** para 6
+frascos, mas o total exibido é **$150** — 6 × $49 = $294. O selo também
+anuncia economia de **$780**, enquanto a diferença entre os valores
+mostrados ($1074 → $150) é de $924.
+
+**Gravidade: Crítico.** É informação de preço inconsistente na página de
+venda. Independentemente de qual número está certo, o usuário atento
+perde confiança, e a diferença pode virar disputa de cobrança.
+
+> Observação: B3 é uma inconsistência aritmética entre os valores
+> exibidos. Não tenho acesso ao checkout para saber qual valor é
+> efetivamente cobrado, então não afirmo qual dos dois está errado —
+> apenas que os dois não podem estar certos ao mesmo tempo.
 
 ## Conclusão
 
